@@ -6,10 +6,10 @@
 </mat-toolbar>
 
 <mat-sidenav-container autosize="true">
-  <mat-sidenav [opened]="true" mode="side">
+  <mat-sidenav (click)="sidenav.close()" [opened]="true" mode="side">
     <mat-nav-list *ngIf="!isCollapsed">
 
-      <a mat-list-item [routerLink]="'/pub/bar'">
+      <a mat-list-item [routerLink]="'/pub/home/bar-manual'">
         <span class="entry">
             <mat-icon>fitness_center</mat-icon>
             <span>Montar Barra</span>
@@ -18,10 +18,10 @@
 
       <mat-divider></mat-divider>
 
-      <a mat-list-item [routerLink]="'/pub/calc-percent'">
+      <a mat-list-item [routerLink]="['/pub/home/calc-percent', 0]">
         <span class="entry">
             <mat-icon>percent</mat-icon>
-            <span>Calcular %</span>
+            <span>Calcular &#37;</span>
          </span>
       </a>
 
