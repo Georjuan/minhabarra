@@ -8,14 +8,14 @@ import {CalcPercentComponent} from "./calc-percent/calc-percent.component";
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home/bar-manual',
+    redirectTo: '/home/calc-percent/0',
     pathMatch: 'full'
   },
   {
     path: 'home',
     component: HomeComponent,
     children: [
-      { path: '', redirectTo: '/bar-manual', pathMatch: 'full' },
+      { path: '', redirectTo: '/calc-percent/0', pathMatch: 'full' },
       {
         path: 'kg-to-lb',
         component: KgToLbComponent
