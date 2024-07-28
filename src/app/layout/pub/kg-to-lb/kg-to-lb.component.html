@@ -1,0 +1,40 @@
+<div id="kg-to-lb-container" class="d-flex justify-content-center">
+
+  <mat-card id="kg-to-lb-card" class="mt-2">
+
+    <mat-card-subtitle class="d-flex justify-content-center"></mat-card-subtitle>
+
+    <mat-card-title class="d-flex justify-content-center">Convers&atilde;o Kg <> Lb</mat-card-title>
+
+    <mat-card-content class="d-flex flex-column">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Kilos (Kg)</mat-label>
+        <input matInput type="number" (ngModelChange)="onChangeKg($event)" [(ngModel)]="kgToLb.kg" input2DigitsDecimalNumber>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Libras (Lb)</mat-label>
+        <input matInput type="number" (ngModelChange)="onChangeLb($event)" [(ngModel)]="kgToLb.lb" input2DigitsDecimalNumber>
+      </mat-form-field>
+
+    </mat-card-content>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-actions class="flex-row justify-content-around">
+      <a mat-fab extended [routerLink]="'/home/calc-percent'">
+        <mat-icon>percent</mat-icon>
+        Calcular %
+      </a>
+      <a mat-fab extended [routerLink]="'/home/bar'">
+        <mat-icon>fitness_center</mat-icon>
+        Montar Barra
+      </a>
+    </mat-card-actions>
+
+    <mat-card-footer></mat-card-footer>
+
+  </mat-card>
+
+</div>
