@@ -1,0 +1,55 @@
+<mat-toolbar class="top" color="primary">
+  <button mat-icon-button aria-label="Menu icon" (click)="toggleMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h1 style="font-size: 0.8em;">{{appTitle}}</h1>
+</mat-toolbar>
+
+<mat-sidenav-container autosize="true">
+  <mat-sidenav [opened]="true" mode="side">
+    <mat-nav-list *ngIf="!isCollapsed">
+
+      <a mat-list-item [routerLink]="'/pub/bar'">
+        <span class="entry">
+            <mat-icon>fitness_center</mat-icon>
+            <span>Montar Barra</span>
+         </span>
+      </a>
+
+      <mat-divider></mat-divider>
+
+      <a mat-list-item [routerLink]="'/pub/calc-percent'">
+        <span class="entry">
+            <mat-icon>percent</mat-icon>
+            <span>Calcular %</span>
+         </span>
+      </a>
+
+      <mat-divider></mat-divider>
+
+      <a mat-list-item [routerLink]="'/pub/home/kg-to-lb'">
+        <span class="entry">
+            <mat-icon>calculate</mat-icon>
+            <span>Convers&atilde;o Kg/Lb</span>
+         </span>
+      </a>
+
+      <mat-divider></mat-divider>
+
+      <a mat-list-item target="_blank" title="{{contactEmail}}" href="mailto:{{contactEmail}}?subject={{contactDefaultSubject}}&body={{contactDefaultBody}}">
+        <span class="entry">
+            <mat-icon>mail</mat-icon>
+            <span>Contato</span>
+         </span>
+      </a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<mat-toolbar class="bottom center" color="secondary">
+  <h5 style="font-size: 0.5em;">Powered by <a target="_blank" href="{{ownerPageLink}}">{{ownerPageTitle}}</a></h5>
+</mat-toolbar>
