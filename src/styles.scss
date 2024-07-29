@@ -2,6 +2,8 @@
 @import "bootstrap/scss/bootstrap-grid";
 @import "bootstrap-icons/font/bootstrap-icons";
 
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
@@ -10,6 +12,10 @@ h1 {
 }
 
 h2 {padding: 1rem;}
+
+.table-head *{
+  font-weight: bold;
+}
 
 .center {
   flex: 1 1 auto;
@@ -31,6 +37,10 @@ mat-toolbar.top{
 
 mat-sidenav-container {
   height:100%;
+}
+
+mat-card-subtitle, .mat-card-subtitle{
+  margin-bottom: 1em !important;
 }
 
 // Move the content down so that it won't be hidden by the toolbar

@@ -29,7 +29,7 @@ import {Input2DigitsDecimalNumberDirective} from "./directive/input2-digits-deci
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
 ],
   exports: [
     CommonModule,
@@ -44,7 +44,7 @@ import {Input2DigitsDecimalNumberDirective} from "./directive/input2-digits-deci
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    Input2DigitsDecimalNumberDirective
+    Input2DigitsDecimalNumberDirective,
   ]
 })
 export class SharedModule {
