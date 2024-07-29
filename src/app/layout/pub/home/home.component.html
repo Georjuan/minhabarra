@@ -34,14 +34,15 @@
          </span>
       </a>
 
-<!--      <mat-divider></mat-divider>-->
+      <mat-divider></mat-divider>
 
 <!--      <a mat-list-item target="_blank" title="{{contactEmail}}" href="mailto:{{contactEmail}}?subject={{contactDefaultSubject}}&body={{contactDefaultBody}}">-->
-<!--        <span class="entry">-->
-<!--            <mat-icon>mail</mat-icon>-->
-<!--            <span>Contato</span>-->
-<!--         </span>-->
-<!--      </a>-->
+      <a mat-list-item target="_blank" [routerLink]="'/pub/home/contato'">
+        <span class="entry">
+            <mat-icon>mail</mat-icon>
+            <span>Contato</span>
+         </span>
+      </a>
 
     </mat-nav-list>
   </mat-sidenav>
