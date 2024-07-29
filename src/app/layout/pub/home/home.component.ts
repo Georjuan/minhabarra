@@ -10,11 +10,11 @@ import {environment} from "../../../../environments/environment";
 })
 export class HomeComponent implements OnInit {
   appTitle: string = environment.appProperties.title;
-  contactEmail: string = environment.appProperties.contactEmail;
+  // contactEmail: string = environment.appProperties.contactEmail;
   ownerPageLink: string = environment.appProperties.ownerPageLink;
   ownerPageTitle: string = environment.appProperties.ownerPageTitle;
-  contactDefaultSubject: string = environment.appProperties.contactDefaultSubject;
-  contactDefaultBody: string = environment.appProperties.contactDefaultBody;
+  // contactDefaultSubject: string = environment.appProperties.contactDefaultSubject;
+  // contactDefaultBody: string = environment.appProperties.contactDefaultBody;
 
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;

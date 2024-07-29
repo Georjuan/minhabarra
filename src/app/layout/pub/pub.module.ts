@@ -5,13 +5,15 @@ import {SharedModule} from "../../shared/shared.module";
 import {KgToLbComponent} from './kg-to-lb/kg-to-lb.component';
 import { BarManualComponent } from './bar-manual/bar-manual.component';
 import { CalcPercentComponent } from './calc-percent/calc-percent.component';
+import { ContatoComponent } from './contato/contato.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     KgToLbComponent,
     BarManualComponent,
-    CalcPercentComponent
+    CalcPercentComponent,
+    ContatoComponent
   ],
     imports: [
         PubRoutesModule,

@@ -4,6 +4,7 @@ import {HomeComponent} from "./home/home.component";
 import {KgToLbComponent} from "./kg-to-lb/kg-to-lb.component";
 import {BarManualComponent} from "./bar-manual/bar-manual.component";
 import {CalcPercentComponent} from "./calc-percent/calc-percent.component";
+import {ContatoComponent} from "./contato/contato.component";
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
       {
         path: 'bar-manual',
         component: BarManualComponent
+      },
+      {
+        path: 'contato',
+        component: ContatoComponent
       },
       {
         path: 'calc-percent/:weight',
