@@ -6,6 +6,8 @@ import {KgToLbComponent} from './kg-to-lb/kg-to-lb.component';
 import { BarManualComponent } from './bar-manual/bar-manual.component';
 import { CalcPercentComponent } from './calc-percent/calc-percent.component';
 import { ContatoComponent } from './contato/contato.component';
+import {MatTooltip} from "@angular/material/tooltip";
+import {MatOption, MatSelect} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -15,10 +17,13 @@ import { ContatoComponent } from './contato/contato.component';
     CalcPercentComponent,
     ContatoComponent
   ],
-    imports: [
-        PubRoutesModule,
-        SharedModule
-    ],
+  imports: [
+    PubRoutesModule,
+    SharedModule,
+    MatTooltip,
+    MatSelect,
+    MatOption
+  ],
   exports: [
     HomeComponent
   ]

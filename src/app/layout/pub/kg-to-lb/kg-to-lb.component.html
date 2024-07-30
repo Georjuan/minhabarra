@@ -12,14 +12,14 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Kilos (kg)</mat-label>
-        <input #inputKg matInput type="number" (ngModelChange)="onChangeKg($event)"
-               (click)="onClick($event)" [(ngModel)]="kgToLb.kg" input2DigitsDecimalNumber>
+        <input #inputKg matInput type="number" (ngModelChange)="onChangeKg($event)" [(ngModel)]="kgToLb.kg"
+               (click)="onClick($event, inputKg)" (keydown)="onKeydown($event, inputKg)" input2DigitsDecimalNumber>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Libras (lb)</mat-label>
-        <input #inputLb matInput type="number" (ngModelChange)="onChangeLb($event)"
-               (click)="onClick($event)" [(ngModel)]="kgToLb.lb" input2DigitsDecimalNumber>
+        <input #inputLb matInput type="number" (ngModelChange)="onChangeLb($event)" [(ngModel)]="kgToLb.lb"
+               (click)="onClick($event, inputLb)" (keydown)="onKeydown($event, inputLb)" input2DigitsDecimalNumber>
       </mat-form-field>
 
     </mat-card-content>

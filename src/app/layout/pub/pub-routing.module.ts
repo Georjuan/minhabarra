@@ -9,14 +9,14 @@ import {ContatoComponent} from "./contato/contato.component";
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home/calc-percent/0',
+    redirectTo: '/home/bar-manual',
     pathMatch: 'full'
   },
   {
     path: 'home',
     component: HomeComponent,
     children: [
-      { path: '', redirectTo: '/calc-percent/0', pathMatch: 'full' },
+      { path: '', redirectTo: '/bar-manual', pathMatch: 'full' },
       {
         path: 'kg-to-lb',
         component: KgToLbComponent

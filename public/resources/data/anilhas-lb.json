@@ -1,0 +1,56 @@
+[
+  {
+    "peso": 1,
+    "unidade": "lb",
+    "cor": "lime",
+    "tamanho": 1
+  },
+  {
+    "peso": 2.5,
+    "unidade": "lb",
+    "cor": "pink",
+    "tamanho": 1
+  },
+  {
+    "peso": 5,
+    "unidade": "lb",
+    "cor": "red",
+    "tamanho": 1
+  },
+  {
+    "peso": 10,
+    "unidade": "lb",
+    "cor": "blue",
+    "tamanho": 1
+  },
+  {
+    "peso": 15,
+    "unidade": "lb",
+    "cor": "yellow",
+    "tamanho": 2
+  },
+  {
+    "peso": 25,
+    "unidade": "lb",
+    "cor": "darkgreen",
+    "tamanho": 5
+  },
+  {
+    "peso": 35,
+    "unidade": "lb",
+    "cor": "#a99c43",
+    "tamanho": 5
+  },
+  {
+    "peso": 45,
+    "unidade": "lb",
+    "cor": "darkviolet",
+    "tamanho": 5
+  },
+  {
+    "peso": 55,
+    "unidade": "lb",
+    "cor": "darkgray",
+    "tamanho": 5
+  }
+]

@@ -1,1 +1,131 @@
-<p>bar-manual works!</p>
+<div id="bar-manual-container" class="d-flex justify-content-center">
+
+  <mat-card id="bar-manual-card" class="mt-2">
+
+    <mat-card-title class="d-flex justify-content-center">Montagem de barra</mat-card-title>
+
+    <mat-card-subtitle class="d-flex center">
+      Informe a barra e adicione ou remova anilhas para obter o peso total
+    </mat-card-subtitle>
+
+    <mat-card-content class="d-flex flex-column">
+
+      <div class="d-flex flex-row mt-2 bar-box" [ngStyle]="{'background-image': barImage}">
+        <div class="d-flex flex-grow-1 justify-content-center align-items-center">
+          <div class="d-flex flex-column justify-content-center" *ngFor="let item of anilhas()">
+            <div class="d-flex flex-column justify-content-center">
+              <span class="font-0-6 center">{{item.peso}}</span>
+              <span class="font-0-6 center">{{item.unidade}}</span>
+            </div>
+            <div class="anilha-barra" [ngStyle]="{'background-color': item.cor}"></div>
+            <span class="font-0-6 center">{{item.quantidade}}x</span>
+            <span class="font-0-6 center">&nbsp;</span>
+          </div>
+          <div class="separador-barra"></div>
+        </div>
+        <div class="d-flex flex-grow-1 justify-content-center align-items-center">
+          <div class="separador-barra"></div>
+          <div class="d-flex flex-column justify-content-center" *ngFor="let item of anilhas()">
+            <div class="d-flex flex-column justify-content-center">
+              <span class="font-0-6 center">{{item.peso}}</span>
+              <span class="font-0-6 center">{{item.unidade}}</span>
+            </div>
+            <div class="anilha-barra" [ngStyle]="{'background-color': item.cor}"></div>
+            <span class="font-0-6 center">{{item.quantidade}}x</span>
+            <span class="font-0-6 center">&nbsp;</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex flex-row mb-2 justify-content-center">
+        <strong>{{FunctionsNumberUtils.round(pesoTotalKg())}}kg - {{FunctionsNumberUtils.round(pesoTotalLb())}}lb</strong>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <div class="d-flex flex-row justify-content-between mt-2 flex-fill">
+        <div class="d-flex justify-content-start">
+          <mat-form-field>
+            <mat-label>Barra</mat-label>
+            <mat-select [(ngModel)]="barWeight" required>
+              <mat-option *ngFor="let item of barras" [value]="getPesoKg(item)">
+                {{item.peso}}{{item.unidade}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="d-flex justify-content-end mt-1 mb-2">
+          <button mat-fab extended (click)="limpar()">
+            <mat-icon>delete</mat-icon>
+            Limpar
+          </button>
+        </div>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <div class="d-flex flex-row table-head mt-3 flex-fill">
+        <div class="d-flex flex-grow-1 justify-content-center">Libras</div>
+        <div class="d-flex flex-grow-1 justify-content-center">Kilos</div>
+      </div>
+
+      <div class="d-flex flex-row flex-fill mb-3 mt-2">
+        <div class="d-flex flex-column justify-content-center flex-grow-1">
+
+          <div *ngFor="let item of anilhasLb">
+            <div class="d-flex flex-row">
+              <div class="d-flex justify-content-center">
+                <div class="anilha" [ngStyle]="{'background-color': item.cor}">
+                  {{item.peso}}{{item.unidade}}
+                </div>
+              </div>
+              <div class="d-flex flex-column justify-content-center">
+                <button mat-icon-button matSuffix (click)="add(item)">
+                  <mat-icon style="transform: scale(1.5);">add_circle</mat-icon>
+                </button>
+                <span class="center" [ngStyle]="{'color': item.quantidade > 0 ? 'black' : 'gray'}">{{item.quantidade || 0}}x</span>
+                <button mat-icon-button matSuffix (click)="remove(item)">
+                  <mat-icon style="transform: scale(1.5);">do_not_disturb_on</mat-icon>
+                </button>
+              </div>
+            </div>
+            <mat-divider></mat-divider>
+          </div>
+
+        </div>
+
+        <div class="d-flex flex-column justify-content-center flex-grow-1">
+
+          <div *ngFor="let item of anilhasKg">
+            <div class="d-flex flex-row">
+              <div class="d-flex justify-content-center">
+                <div class="anilha" [ngStyle]="{'background-color': item.cor}">
+                  {{item.peso}}{{item.unidade}}
+                </div>
+              </div>
+              <div class="d-flex flex-column justify-content-center">
+                <button mat-icon-button matSuffix (click)="add(item)">
+                  <mat-icon style="transform: scale(1.5);">add_circle</mat-icon>
+                </button>
+                <span class="center" [ngStyle]="{'color': item.quantidade > 0 ? 'black' : 'gray'}">{{item.quantidade || 0}}x</span>
+                <button mat-icon-button matSuffix (click)="remove(item)">
+                  <mat-icon style="transform: scale(1.5);">do_not_disturb_on</mat-icon>
+                </button>
+              </div>
+            </div>
+            <mat-divider></mat-divider>
+          </div>
+
+        </div>
+
+      </div>
+
+    </mat-card-content>
+
+    <mat-card-actions class="flex-row justify-content-around"></mat-card-actions>
+
+    <mat-card-footer></mat-card-footer>
+
+  </mat-card>
+
+</div>

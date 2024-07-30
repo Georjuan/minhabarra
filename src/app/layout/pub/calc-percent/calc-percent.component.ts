@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, signal} from '@angular/core';
+import {Component, ElementRef, OnInit, signal, ViewChild} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {FunctionsStringUtils} from "../../../shared/utils/functions-string-utils";
 import {FunctionsNumberUtils} from "../../../shared/utils/functions-number-utils";
@@ -8,9 +8,11 @@ import {FunctionsNumberUtils} from "../../../shared/utils/functions-number-utils
   templateUrl: './calc-percent.component.html',
   styleUrl: './calc-percent.component.scss'
 })
-export class CalcPercentComponent implements OnInit, AfterViewInit {
+export class CalcPercentComponent implements OnInit {
   //Weight in lb
   weight: number = 0;
+
+  @ViewChild('inputWight') inputWight: ElementRef<HTMLInputElement> | undefined;
 
   data: Array<{percentage: number, kilos: number, libras: number}> = new Array<{percentage: number; kilos: number; libras: number}>()
 
@@ -18,12 +20,24 @@ export class CalcPercentComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     let _weight: string | null = this.route.snapshot.paramMap.get('weight');
+
     FunctionsStringUtils.isNotBlank(_weight) ?
       this.weight = parseFloat(_weight as string) : this.weight = 0;
+
+    this.calc();
   }
 
-  ngAfterViewInit() {
-    this.calc();
+  onKeydown(event: KeyboardEvent): void {
+    if(event.key == 'Enter'){
+      if(this.inputWight) this.inputWight.nativeElement.blur();
+    }
+  }
+
+  onClick(): void {
+    console.log(this.inputWight);
+    if(this.weight == 0){
+      if(this.inputWight) this.inputWight.nativeElement.value = '';
+    }
   }
 
   onChange(value: any): void {

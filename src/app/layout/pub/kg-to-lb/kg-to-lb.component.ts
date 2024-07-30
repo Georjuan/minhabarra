@@ -8,23 +8,26 @@ import {FunctionsNumberUtils} from "../../../shared/utils/functions-number-utils
   styleUrl: './kg-to-lb.component.scss'
 })
 export class KgToLbComponent {
-  @ViewChild('inputKg') inputKg: ElementRef | undefined;
-  @ViewChild('inputLb') inputLb: ElementRef | undefined;
-
-  static KG_TO_LB_BASE: number = 2.20462;
+  @ViewChild('inputKg') inputKg: ElementRef<HTMLInputElement> | undefined;
+  @ViewChild('inputLb') inputLb: ElementRef<HTMLInputElement> | undefined;
 
   kgToLb: KgLb = new KgLb();
 
-  onClick(event: MouseEvent): void {
-    if(this.inputKg?.nativeElement.value == 0 || this.inputLb?.nativeElement.value == 0){
-      if(this.inputKg) this.inputKg.nativeElement.value = '';
-      if(this.inputLb) this.inputLb.nativeElement.value = '';
+  onClick(event: MouseEvent, elementRef: HTMLInputElement): void {
+    if(elementRef.value.trim() == '0'){
+      elementRef.value = '';
+    }
+  }
+
+  onKeydown(event: KeyboardEvent, elementRef: HTMLInputElement): void {
+    if(event.key == 'Enter'){
+      elementRef.blur();
     }
   }
 
   onChangeKg(value: any): void {
     if(FunctionsNumberUtils.isValidNumber(value)){
-      this.kgToLb.lb = FunctionsNumberUtils.round(Number(value) * KgToLbComponent.KG_TO_LB_BASE);
+      this.kgToLb.lb = FunctionsNumberUtils.round(Number(value) * FunctionsNumberUtils.KG_TO_LB_BASE);
     }else{
       this.kgToLb.lb = 0;
       this.kgToLb.kg = 0;
@@ -33,7 +36,7 @@ export class KgToLbComponent {
 
   onChangeLb(value: any): void {
     if(FunctionsNumberUtils.isValidNumber(value)){
-      this.kgToLb.kg = FunctionsNumberUtils.round(Number(value) / KgToLbComponent.KG_TO_LB_BASE);
+      this.kgToLb.kg = FunctionsNumberUtils.round(Number(value) / FunctionsNumberUtils.KG_TO_LB_BASE);
     }else{
       this.kgToLb.lb = 0;
       this.kgToLb.kg = 0;

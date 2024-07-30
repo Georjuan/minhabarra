@@ -6,19 +6,19 @@
 </mat-toolbar>
 
 <mat-sidenav-container autosize="true">
-  <mat-sidenav (click)="sidenav.close()" [opened]="true" mode="side">
+  <mat-sidenav [opened]="true" mode="side">
     <mat-nav-list *ngIf="!isCollapsed">
 
-<!--      <a mat-list-item [routerLink]="'/pub/home/bar-manual'">-->
-<!--        <span class="entry">-->
-<!--            <mat-icon>fitness_center</mat-icon>-->
-<!--            <span>Montar Barra</span>-->
-<!--         </span>-->
-<!--      </a>-->
+      <a mat-list-item (click)="closeMenu()" [routerLink]="'/pub/home/bar-manual'">
+        <span class="entry">
+            <mat-icon>fitness_center</mat-icon>
+            <span>Montar Barra</span>
+         </span>
+      </a>
 
       <mat-divider></mat-divider>
 
-      <a mat-list-item [routerLink]="['/pub/home/calc-percent', 0]">
+      <a mat-list-item (click)="closeMenu()" [routerLink]="['/pub/home/calc-percent', 0]">
         <span class="entry">
             <mat-icon>percent</mat-icon>
             <span>Calcular &#37;</span>
@@ -27,7 +27,7 @@
 
       <mat-divider></mat-divider>
 
-      <a mat-list-item [routerLink]="'/pub/home/kg-to-lb'">
+      <a mat-list-item (click)="closeMenu()" [routerLink]="'/pub/home/kg-to-lb'">
         <span class="entry">
             <mat-icon>calculate</mat-icon>
             <span>Convers&atilde;o Kg/Lb</span>
@@ -36,8 +36,7 @@
 
       <mat-divider></mat-divider>
 
-<!--      <a mat-list-item target="_blank" title="{{contactEmail}}" href="mailto:{{contactEmail}}?subject={{contactDefaultSubject}}&body={{contactDefaultBody}}">-->
-      <a mat-list-item target="_blank" [routerLink]="'/pub/home/contato'">
+      <a mat-list-item target="_blank" (click)="closeMenu()" [routerLink]="'/pub/home/contato'">
         <span class="entry">
             <mat-icon>mail</mat-icon>
             <span>Contato</span>
