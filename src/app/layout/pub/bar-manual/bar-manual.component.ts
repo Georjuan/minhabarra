@@ -24,11 +24,13 @@ export class BarManualComponent implements OnInit {
     fetch('resources/data/anilhas-kg.json').then(res => res.json())
       .then(json => {
         this.anilhasKg = json as Array<Anilha>;
+        this.anilhasKg.forEach(anilha => anilha.quantidade = 0);
         this.anilhasKg = this.anilhasKg.sort((a, b) => b.peso - a.peso);
       });
     fetch('resources/data/anilhas-lb.json').then(res => res.json())
       .then(json => {
         this.anilhasLb = json as Array<Anilha>;
+        this.anilhasLb.forEach(anilha => anilha.quantidade = 0);
         this.anilhasLb = this.anilhasLb.sort((a, b) => b.peso - a.peso);
       });
     fetch('resources/data/barras.json').then(res => res.json())
