@@ -6,7 +6,8 @@
     "outDir": "./out-tsc/spec",
     "types": [
       "jasmine"
-    ]
+    ],
+    "resolveJsonModule": true
   },
   "include": [
     "src/**/*.spec.ts",

@@ -1,0 +1,38 @@
+[
+  {
+    "peso": 20,
+    "unidade": "kg"
+  },
+  {
+    "peso": 15,
+    "unidade": "kg"
+  },
+  {
+    "peso": 13.5,
+    "unidade": "kg"
+  },
+  {
+    "peso": 12,
+    "unidade": "kg"
+  },
+  {
+    "peso": 10,
+    "unidade": "kg"
+  },
+  {
+    "peso": 8,
+    "unidade": "kg"
+  },
+  {
+    "peso": 15,
+    "unidade": "lb"
+  },
+  {
+    "peso": 35,
+    "unidade": "lb"
+  },
+  {
+    "peso": 45,
+    "unidade": "lb"
+  }
+]

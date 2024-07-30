@@ -10,11 +10,8 @@ import {environment} from "../../../../environments/environment";
 })
 export class HomeComponent implements OnInit {
   appTitle: string = environment.appProperties.title;
-  // contactEmail: string = environment.appProperties.contactEmail;
   ownerPageLink: string = environment.appProperties.ownerPageLink;
   ownerPageTitle: string = environment.appProperties.ownerPageTitle;
-  // contactDefaultSubject: string = environment.appProperties.contactDefaultSubject;
-  // contactDefaultBody: string = environment.appProperties.contactDefaultBody;
 
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
@@ -36,12 +33,8 @@ export class HomeComponent implements OnInit {
   }
 
   toggleMenu(): void {
-    if(this.isMobile){
-      this.sidenav.toggle();
-      this.isCollapsed = false; // On mobile, the menu can never be collapsed
-    } else {
-      this.sidenav.open(); // On desktop/tablet, the menu can never be fully closed
-      this.isCollapsed = !this.isCollapsed;
-    }
+    this.sidenav.open();
+    this.isCollapsed = !this.isCollapsed;
   }
+
 }

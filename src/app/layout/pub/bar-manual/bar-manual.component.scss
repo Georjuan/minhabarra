@@ -1,0 +1,9 @@
+#bar-manual-container{
+  margin-bottom: 100px;
+}
+
+@media (min-width: 601px) {
+  #bar-manual-card {
+    width: 550px;
+  }
+}

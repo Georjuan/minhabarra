@@ -1,0 +1,56 @@
+[
+  {
+    "peso": 0.5,
+    "unidade": "kg",
+    "cor": "deepskyblue",
+    "tamanho": 1
+  },
+  {
+    "peso": 1,
+    "unidade": "kg",
+    "cor": "lightpink",
+    "tamanho": 1
+  },
+  {
+    "peso": 1.5,
+    "unidade": "kg",
+    "cor": "darkred",
+    "tamanho": 1
+  },
+  {
+    "peso": 2,
+    "unidade": "kg",
+    "cor": "rgb(41, 128, 185)",
+    "tamanho": 2
+  },
+  {
+    "peso": 5,
+    "unidade": "kg",
+    "cor": "greenyellow",
+    "tamanho": 5
+  },
+  {
+    "peso": 10,
+    "unidade": "kg",
+    "cor": "rgb(39, 174, 96)",
+    "tamanho": 5
+  },
+  {
+    "peso": 15,
+    "unidade": "kg",
+    "cor": "saddlebrown",
+    "tamanho": 5
+  },
+  {
+    "peso": 20,
+    "unidade": "kg",
+    "cor": "mediumvioletred",
+    "tamanho": 20
+  },
+  {
+    "peso": 25,
+    "unidade": "kg",
+    "cor": "darkslategray",
+    "tamanho": 20
+  }
+]
