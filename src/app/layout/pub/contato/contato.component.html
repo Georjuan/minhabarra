@@ -1,4 +1,13 @@
-<a mat-fab extended class="mt-4 center" [routerLink]="['/pub/home/']">
-  <mat-icon>home</mat-icon>
-  Voltar
-</a>
+<div class="d-flex flex-column justify-content-center">
+  <a mat-fab extended class="mt-4 center" target="_blank" href="mailto:{{this.contactEmail}}?subject={{this.contactDefaultSubject}}&body={{this.contactDefaultBody}}">
+    <mat-icon>email</mat-icon>
+    Email: {{this.contactEmail}}
+  </a>
+
+  <br>
+
+  <a mat-fab extended class="mt-4 center" [routerLink]="['../../']">
+    <mat-icon>home</mat-icon>
+    Voltar
+  </a>
+</div>
