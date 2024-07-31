@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {BreakpointObserver} from "@angular/cdk/layout";
 import {MatSidenav} from "@angular/material/sidenav";
 import {environment} from "../../../../environments/environment";
+import packageJson from "../../../../../package.json";
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,8 @@ import {environment} from "../../../../environments/environment";
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
+  version: string = packageJson.version;
+
   appTitle: string = environment.appProperties.title;
   ownerPageLink: string = environment.appProperties.ownerPageLink;
   ownerPageTitle: string = environment.appProperties.ownerPageTitle;
