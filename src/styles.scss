@@ -27,6 +27,8 @@ mat-toolbar.bottom{
   position:fixed;
   bottom:0;
   z-index: 999;
+  height: 40px;
+  max-height: 40px;
 }
 
 mat-toolbar.top{
@@ -37,6 +39,10 @@ mat-toolbar.top{
 
 mat-sidenav-container {
   height:100%;
+}
+
+.mat-mdc-mini-fab{
+  box-shadow: none !important;
 }
 
 mat-card, .mat-card{
@@ -84,8 +90,8 @@ mat-sidenav-content{
 }
 
 .anilha{
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -130,6 +136,8 @@ mat-sidenav-content{
   font-size: 0.6em;
 }
 
-.transparencia{
-  opacity: 0.7;
+.transparencia-anilha{
+  background-color: #eaeaea !important;
+  border-color: gray !important;
+  color: #4a4a4a !important;
 }

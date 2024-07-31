@@ -1,9 +1,9 @@
 export const environment = {
   production: true,
 
+  baseUrl: 'https://minhabarra.com.br',
+
   appProperties: {
-    version: 'v1.0.1',
-    releaseDate: '30/07/2024',
     title: 'Minha Barra - Calculadora de Pesos',
     contactEmail: 'georjuan@gmail.com',
     contactDefaultSubject: 'Contato App - Minha Barra',
