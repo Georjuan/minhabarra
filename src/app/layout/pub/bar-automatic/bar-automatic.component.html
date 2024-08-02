@@ -1,11 +1,13 @@
-<div id="bar-manual-container" class="d-flex justify-content-center">
+<div id="bar-automatic-container" class="d-flex justify-content-center">
 
-  <mat-card id="bar-manual-card" class="mt-2">
+  <mat-card id="bar-automatic-card" class="mt-2">
 
-    <mat-card-title class="d-flex justify-content-center">Montagem de barra</mat-card-title>
+    <mat-card-title class="d-flex justify-content-center">Montagem automática de barra</mat-card-title>
 
     <mat-card-subtitle class="d-flex center">
-      Selecione sua barra e utilize os botões (+) e (-) para adicionar ou remover anilhas e obter o peso total
+      Informe a sua carga e qual barra deseja utilizar.
+      Utilize os botões (Lb) e (Kg) para alterar a unidade de medida.
+      Desmarque as anilha que não possui em seu estoque!
     </mat-card-subtitle>
 
     <mat-card-content class="d-flex flex-column">
@@ -43,8 +45,24 @@
 
       <mat-divider></mat-divider>
 
-      <div class="d-flex flex-row justify-content-around mt-2 flex-fill">
-        <div class="d-flex justify-content-center">
+      <div class="d-flex flex-row justify-content-around mt-3 flex-fill">
+        <div class="d-flex flex-grow-1 justify-content-center min-width-0">
+          <mat-form-field appearance="outline">
+            <mat-label>Carga desejada</mat-label>
+            <input matInput #inputWight type="number" [(ngModel)]="weight" (click)="onClick()" [min]="barWeight"
+                   (focusout)="onFocusout($event)" (keydown)="onKeydown($event)"
+                   (ngModelChange)="onChangeWeight($event)" input2DigitsDecimalNumber />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="changeUnitEvent($event)"
+              [attr.aria-label]="'Mudar unidade de medida'"
+              [attr.aria-pressed]="lbUnit()">
+              <mat-icon style="transform: scale(1.5);" svgIcon="{{lbUnit() ? 'libras' : 'kilos'}}"></mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        <div class="d-flex flex-grow-1 justify-content-center min-width-0">
           <mat-form-field>
             <mat-label>Barra</mat-label>
             <mat-select (selectionChange)="onChangeBar($event)" [(ngModel)]="barWeight" required>
@@ -53,12 +71,6 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
-        </div>
-        <div class="d-flex justify-content-center">
-          <button mat-fab extended (click)="limpar()">
-            <mat-icon>delete</mat-icon>
-            Limpar
-          </button>
         </div>
       </div>
 
@@ -72,21 +84,16 @@
       <div class="d-flex flex-row flex-fill mb-3 mt-2">
         <div class="d-flex flex-column flex-grow-1">
 
-          <div *ngFor="let item of anilhasLb">
-            <div class="d-flex flex-row justify-content-center">
+          <div class="mb-2" *ngFor="let item of anilhasLb">
+            <div class="d-flex flex-row justify-content-center mb-2">
               <div class="d-flex justify-content-center">
-                <div [ngStyle]="{'background-color': item.cor}" [ngClass]="{'anilha': true, 'transparencia-anilha': item.quantidade <= 0}">
+                <div [ngStyle]="{'background-color': item.cor}" [ngClass]="{'anilha': true, 'transparencia-anilha': !item.disponivel}">
                   {{item.peso}}{{item.unidade}}
                 </div>
               </div>
               <div class="d-flex flex-column justify-content-center">
-                <button mat-mini-fab color="" (click)="add(item)">
-                  <mat-icon style="transform: scale(1.2);">add_circle</mat-icon>
-                </button>
-                <span class="center" [ngStyle]="{'color': item.quantidade > 0 ? 'black' : 'gray'}">{{item.quantidade || 0}}x</span>
-                <button mat-mini-fab color="" (click)="remove(item)">
-                  <mat-icon style="transform: scale(1.2);">do_not_disturb_on</mat-icon>
-                </button>
+                <mat-slide-toggle class="d-flex align-items-center mt-3" (change)="onChangeAnilha($event, item)" [(ngModel)]="item.disponivel"></mat-slide-toggle>
+                <span class="center mt-3" [ngStyle]="{'color': item.disponivel ? 'black' : 'gray'}">{{item.quantidade || 0}}x</span>
               </div>
             </div>
             <mat-divider></mat-divider>
@@ -96,21 +103,16 @@
 
         <div class="d-flex flex-column justify-content-center flex-grow-1">
 
-          <div *ngFor="let item of anilhasKg">
-            <div class="d-flex flex-row justify-content-center">
+          <div class="mb-2" *ngFor="let item of anilhasKg">
+            <div class="d-flex flex-row justify-content-center mb-2">
               <div class="d-flex justify-content-center">
-                <div [ngStyle]="{'background-color': item.cor}" [ngClass]="{'anilha': true, 'transparencia-anilha': item.quantidade <= 0}">
+                <div [ngStyle]="{'background-color': item.cor}" [ngClass]="{'anilha': true, 'transparencia-anilha': !item.disponivel}">
                   {{item.peso}}{{item.unidade}}
                 </div>
               </div>
               <div class="d-flex flex-column justify-content-center">
-                <button mat-mini-fab color="" (click)="add(item)">
-                  <mat-icon style="transform: scale(1.2);">add_circle</mat-icon>
-                </button>
-                <span class="center" [ngStyle]="{'color': item.quantidade > 0 ? 'black' : 'gray'}">{{item.quantidade || 0}}x</span>
-                <button mat-mini-fab color="" (click)="remove(item)">
-                  <mat-icon style="transform: scale(1.2);">do_not_disturb_on</mat-icon>
-                </button>
+                <mat-slide-toggle class="d-flex align-items-center mt-3" (change)="onChangeAnilha($event, item)" [(ngModel)]="item.disponivel"></mat-slide-toggle>
+                <span class="center mt-3" [ngStyle]="{'color': item.disponivel ? 'black' : 'gray'}">{{item.quantidade || 0}}x</span>
               </div>
             </div>
             <mat-divider></mat-divider>

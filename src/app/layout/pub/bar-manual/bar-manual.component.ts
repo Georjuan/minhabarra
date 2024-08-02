@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Anilha} from "../../../shared/model/anilha";
 import {FunctionsNumberUtils} from "../../../shared/utils/functions-number-utils";
 import {Barra} from "../../../shared/model/barra";
+import {MatSelectChange} from "@angular/material/select";
+import {StorageService} from "../../../shared/services/storage.service";
 
 @Component({
   selector: 'app-bar-manual',
@@ -18,6 +20,7 @@ export class BarManualComponent implements OnInit {
 
   barImage: String = "url(resources/images/bar.png)";
 
+  //Weight in kg
   barWeight: number = 20;
 
   ngOnInit() {
@@ -37,20 +40,45 @@ export class BarManualComponent implements OnInit {
       .then(json => {
         this.barras = json as Array<Barra>;
         this.barras = this.barras.sort((a, b) => this.getPesoKg(b) - this.getPesoKg(a));
+
+        this.selectPreferencia();
       });
+  }
+
+  selectPreferencia(){
+    if(StorageService.contains(StorageService.BARRA_PREFERENCIAL)){
+      let preferenciaBarra: number = StorageService.get(StorageService.BARRA_PREFERENCIAL) as number;
+      this.barWeight = preferenciaBarra;
+      this.onChangeBar({value: preferenciaBarra} as MatSelectChange);
+    }
+  }
+
+  onChangeBar(event: MatSelectChange){
+    if(event.value){
+      StorageService.set(StorageService.BARRA_PREFERENCIAL, event.value);
+    }
   }
 
   getPesoKg(item: any): number{
     return item.unidade == 'kg' ? item.peso : (item.peso / FunctionsNumberUtils.KG_TO_LB_BASE);
   }
 
-  anilhas(): Array<Anilha>{
-    return this.anilhasKg.filter(anilha => anilha.quantidade > 0)
-                .concat(this.anilhasLb.filter(anilha => anilha.quantidade > 0));
+  anilhasL(): Array<Anilha>{
+    return this.anilhasKg.concat(this.anilhasLb).filter(anilha => anilha.quantidade > 0)
+      .sort((a, b) =>
+        FunctionsNumberUtils.getKg(a.peso,a.unidade=='lb') -
+        FunctionsNumberUtils.getKg(b.peso,b.unidade=='lb'));
+  }
+
+  anilhasR(): Array<Anilha>{
+    return this.anilhasKg.concat(this.anilhasLb).filter(anilha => anilha.quantidade > 0)
+      .sort((a, b) =>
+        FunctionsNumberUtils.getKg(b.peso,b.unidade=='lb') -
+        FunctionsNumberUtils.getKg(a.peso,a.unidade=='lb'));
   }
 
   pesoTotalKg(): number{
-    return this.anilhas().reduce((total, anilha) =>
+    return this.anilhasL().reduce((total, anilha) =>
       total +
       ((anilha.unidade == 'kg' ? anilha.peso : (anilha.peso / FunctionsNumberUtils.KG_TO_LB_BASE)) *
       anilha.quantidade * 2), 0) + this.barWeight;

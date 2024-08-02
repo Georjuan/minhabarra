@@ -12,7 +12,16 @@
       <a mat-list-item (click)="closeMenu()" [routerLink]="'/pub/home/bar-manual'">
         <span class="entry">
             <mat-icon>fitness_center</mat-icon>
-            <span>Montar Barra</span>
+            <span>Montar barra manual</span>
+         </span>
+      </a>
+
+      <mat-divider></mat-divider>
+
+      <a mat-list-item (click)="closeMenu()" [routerLink]="['/pub/home/bar-automatic', 0]">
+        <span class="entry">
+            <mat-icon>precision_manufacturing</mat-icon>
+            <span>Montar barra autom&aacute;tico</span>
          </span>
       </a>
 
@@ -21,7 +30,7 @@
       <a mat-list-item (click)="closeMenu()" [routerLink]="['/pub/home/calc-percent', 0]">
         <span class="entry">
             <mat-icon>percent</mat-icon>
-            <span>Calcular &#37;</span>
+            <span>Calcular &#37; de carga</span>
          </span>
       </a>
 
@@ -30,7 +39,7 @@
       <a mat-list-item (click)="closeMenu()" [routerLink]="'/pub/home/kg-to-lb'">
         <span class="entry">
             <mat-icon>calculate</mat-icon>
-            <span>Convers&atilde;o Kg/Lb</span>
+            <span>Convers&atilde;o kilos/libras</span>
          </span>
       </a>
 

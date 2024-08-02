@@ -5,6 +5,7 @@ import {KgToLbComponent} from "./kg-to-lb/kg-to-lb.component";
 import {BarManualComponent} from "./bar-manual/bar-manual.component";
 import {CalcPercentComponent} from "./calc-percent/calc-percent.component";
 import {ContatoComponent} from "./contato/contato.component";
+import {BarAutomaticComponent} from "./bar-automatic/bar-automatic.component";
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
       {
         path: 'bar-manual',
         component: BarManualComponent
+      },
+      {
+        path: 'bar-automatic/:weight',
+        component: BarAutomaticComponent
       },
       {
         path: 'contato',

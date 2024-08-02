@@ -1,0 +1,9 @@
+#bar-automatic-container{
+  margin-bottom: 100px;
+}
+
+@media (min-width: 601px) {
+  #bar-automatic-card {
+    width: 550px;
+  }
+}
