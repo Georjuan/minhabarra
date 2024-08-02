@@ -45,6 +45,15 @@
 
       <mat-divider></mat-divider>
 
+      <a mat-list-item (click)="closeMenu()" [routerLink]="'/pub/home/install'">
+        <span class="entry">
+            <mat-icon>install_mobile</mat-icon>
+            <span>Instale o App</span>
+         </span>
+      </a>
+
+      <mat-divider></mat-divider>
+
       <a mat-list-item target="_blank" (click)="closeMenu()" [routerLink]="'/pub/home/contato'">
         <span class="entry">
             <mat-icon>mail</mat-icon>
