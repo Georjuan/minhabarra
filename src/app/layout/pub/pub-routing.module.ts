@@ -6,6 +6,7 @@ import {BarManualComponent} from "./bar-manual/bar-manual.component";
 import {CalcPercentComponent} from "./calc-percent/calc-percent.component";
 import {ContatoComponent} from "./contato/contato.component";
 import {BarAutomaticComponent} from "./bar-automatic/bar-automatic.component";
+import {InstallInstructionsComponent} from "./install-instructions/install-instructions.component";
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
       {
         path: 'calc-percent/:weight',
         component: CalcPercentComponent
+      },
+      {
+        path: 'install',
+        component: InstallInstructionsComponent
       }
     ]
   }

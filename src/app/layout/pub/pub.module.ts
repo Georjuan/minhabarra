@@ -10,6 +10,7 @@ import {MatTooltip} from "@angular/material/tooltip";
 import {MatOption, MatSelect} from "@angular/material/select";
 import { BarAutomaticComponent } from './bar-automatic/bar-automatic.component';
 import {MatSlideToggle} from "@angular/material/slide-toggle";
+import { InstallInstructionsComponent } from './install-instructions/install-instructions.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {MatSlideToggle} from "@angular/material/slide-toggle";
     BarManualComponent,
     CalcPercentComponent,
     ContatoComponent,
-    BarAutomaticComponent
+    BarAutomaticComponent,
+    InstallInstructionsComponent
   ],
   imports: [
     PubRoutesModule,
