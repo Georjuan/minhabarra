@@ -5,7 +5,7 @@
     <mat-card-title class="d-flex justify-content-center">Convers&atilde;o kg <> lb</mat-card-title>
 
     <mat-card-subtitle class="d-flex center">
-      Informe o peso em Kilos ou Libras para fazer a convers&atilde;o
+      Informe o peso em kilos ou libras para fazer a convers&atilde;o
     </mat-card-subtitle>
 
     <mat-card-content class="d-flex flex-column">
@@ -26,15 +26,15 @@
 
     <mat-divider></mat-divider>
 
-    <mat-card-actions class="flex-row justify-content-around">
-      <a mat-fab extended [routerLink]="['/pub/home/calc-percent', kgToLb.lb]">
+    <mat-card-actions class="flex-column justify-content-center">
+      <a class="mt-1" mat-fab extended [routerLink]="['/pub/home/calc-percent', kgToLb.lb]" [disabled]="kgToLb.lb <= 0">
         <mat-icon>percent</mat-icon>
-        Calcular &#37;
+        Calcular &#37; de carga
       </a>
-<!--      <a mat-fab extended [routerLink]="'/home/bar'">-->
-<!--        <mat-icon>fitness_center</mat-icon>-->
-<!--        Montar Barra Automático-->
-<!--      </a>-->
+      <a class="mt-3" mat-fab extended [routerLink]="['/pub/home/bar-automatic', kgToLb.lb]" [disabled]="kgToLb.lb <= 0">
+        <mat-icon>precision_manufacturing</mat-icon>
+        <span>Montar barra autom&aacute;tico</span>
+      </a>
     </mat-card-actions>
 
     <mat-card-footer></mat-card-footer>
