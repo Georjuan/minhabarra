@@ -8,6 +8,8 @@ import { CalcPercentComponent } from './calc-percent/calc-percent.component';
 import { ContatoComponent } from './contato/contato.component';
 import {MatTooltip} from "@angular/material/tooltip";
 import {MatOption, MatSelect} from "@angular/material/select";
+import { BarAutomaticComponent } from './bar-automatic/bar-automatic.component';
+import {MatSlideToggle} from "@angular/material/slide-toggle";
 
 @NgModule({
   declarations: [
@@ -15,14 +17,16 @@ import {MatOption, MatSelect} from "@angular/material/select";
     KgToLbComponent,
     BarManualComponent,
     CalcPercentComponent,
-    ContatoComponent
+    ContatoComponent,
+    BarAutomaticComponent
   ],
   imports: [
     PubRoutesModule,
     SharedModule,
     MatTooltip,
     MatSelect,
-    MatOption
+    MatOption,
+    MatSlideToggle
   ],
   exports: [
     HomeComponent

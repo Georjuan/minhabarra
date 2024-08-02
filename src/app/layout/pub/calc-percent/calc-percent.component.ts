@@ -9,7 +9,6 @@ import {FunctionsNumberUtils} from "../../../shared/utils/functions-number-utils
   styleUrl: './calc-percent.component.scss'
 })
 export class CalcPercentComponent implements OnInit {
-  //Weight in lb
   weight: number = 0;
 
   @ViewChild('inputWight') inputWight: ElementRef<HTMLInputElement> | undefined;
@@ -28,19 +27,18 @@ export class CalcPercentComponent implements OnInit {
   }
 
   onKeydown(event: KeyboardEvent): void {
-    if(event.key == 'Enter'){
+    if(['Enter', 'NumpadEnter', 'Tab'].includes(event.key)){
       if(this.inputWight) this.inputWight.nativeElement.blur();
     }
   }
 
   onClick(): void {
-    console.log(this.inputWight);
     if(this.weight == 0){
       if(this.inputWight) this.inputWight.nativeElement.value = '';
     }
   }
 
-  onChange(value: any): void {
+  onChangeWeight(value: any): void {
     if(FunctionsNumberUtils.isValidNumber(value)){
       this.weight = Number(value);
     }else{

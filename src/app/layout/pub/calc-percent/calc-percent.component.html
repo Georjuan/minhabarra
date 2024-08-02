@@ -6,7 +6,7 @@
 
     <mat-card-subtitle class="d-flex center">
       Informe o peso em kilos ou libras para obter os porcentuais parciais.
-      Utilize o botão lateral (Lb) ou (Kg) para alterar a unidade de medida.
+      Utilize os botões (Lb) e (Kg) para alterar a unidade de medida.
     </mat-card-subtitle>
 
     <mat-card-content class="d-flex flex-column">
@@ -14,7 +14,7 @@
       <mat-form-field appearance="outline">
         <mat-label>Peso</mat-label>
         <input matInput #inputWight type="number" [(ngModel)]="weight" (click)="onClick()"
-               (ngModelChange)="onChange($event)" (keydown)="onKeydown($event)" input2DigitsDecimalNumber />
+               (ngModelChange)="onChangeWeight($event)" (keydown)="onKeydown($event)" input2DigitsDecimalNumber />
         <button
           mat-icon-button
           matSuffix
@@ -30,16 +30,22 @@
       <div class="container mt-3">
 
         <div class="row table-head mb-2 mt-2">
-          <div class="col-4">&#37;</div>
-          <div class="col-4">Kilos</div>
-          <div class="col-4">Libras</div>
+          <div class="col-3">&#37;</div>
+          <div class="col-3">kilos</div>
+          <div class="col-3">libras</div>
+          <div class="col-3">Montar</div>
         </div>
 
         <div *ngFor="let item of data">
           <div class="row mb-3 mt-3">
-            <div class="col-4">{{item.percentage | percent : '1.0-2'}}</div>
-            <div class="col-4">{{FunctionsNumberUtils.round(item.kilos)}} kg</div>
-            <div class="col-4">{{FunctionsNumberUtils.round(item.libras)}} lb</div>
+            <div class="col-3 d-flex align-items-center">{{item.percentage | percent : '1.0-2'}}</div>
+            <div class="col-3 d-flex align-items-center">{{FunctionsNumberUtils.round(item.kilos)}} kg</div>
+            <div class="col-3 d-flex align-items-center">{{FunctionsNumberUtils.round(item.libras)}} lb</div>
+            <div class="col-3 d-flex align-items-center">
+              <button mat-mini-fab [routerLink]="['/pub/home/bar-automatic', item.libras]" [disabled]="item.libras<=0">
+                <mat-icon style="transform: scale(1);">precision_manufacturing</mat-icon>
+              </button>
+            </div>
           </div>
           <mat-divider></mat-divider>
         </div>
