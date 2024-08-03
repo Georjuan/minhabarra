@@ -12,8 +12,6 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {FormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {Input2DigitsDecimalNumberDirective} from "./directive/input2-digits-decimal-number.directive";
-import {faBars} from "@fortawesome/free-solid-svg-icons/faBars";
-import {faEllipsisVertical} from "@fortawesome/free-solid-svg-icons/faEllipsisVertical";
 
 @NgModule({
   declarations: [
@@ -51,6 +49,6 @@ import {faEllipsisVertical} from "@fortawesome/free-solid-svg-icons/faEllipsisVe
 })
 export class SharedModule {
   constructor(library: FaIconLibrary) {
-    library.addIcons(faBars, faEllipsisVertical);
+    library.addIcons();
   }
 }
