@@ -1,6 +1,4 @@
-import { Component } from '@angular/core';
-import {faBars} from "@fortawesome/free-solid-svg-icons/faBars";
-import {faEllipsisVertical} from "@fortawesome/free-solid-svg-icons/faEllipsisVertical";
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-install-instructions',
@@ -9,6 +7,4 @@ import {faEllipsisVertical} from "@fortawesome/free-solid-svg-icons/faEllipsisVe
 })
 export class InstallInstructionsComponent {
 
-  protected readonly faBars = faBars;
-  protected readonly faEllipsisVertical = faEllipsisVertical;
 }
