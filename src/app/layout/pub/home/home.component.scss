@@ -1,0 +1,14 @@
+#menu mat-nav-list mat-list-item:nth-child(1){
+  width: 100%;
+  height: 100px;
+  min-height: 100px;
+  background-color: aliceblue;
+
+  #menu-head-online{
+    .profile-pic{
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+    }
+  }
+}

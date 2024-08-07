@@ -6,8 +6,32 @@
 </mat-toolbar>
 
 <mat-sidenav-container autosize="true">
-  <mat-sidenav [opened]="true" mode="side">
+  <mat-sidenav id="menu" [opened]="true" mode="side">
     <mat-nav-list *ngIf="!isCollapsed">
+
+      <mat-list-item>
+        <div id="menu-head-offline" *ngIf="!isLogged()" class="d-flex flex-fill flex-row ms-3 align-items-center">
+          <mat-icon class="d-flex mt-2 mb-2" style="transform: scale(1.5)">face</mat-icon>
+          <div class="d-flex flex-col ms-2">
+            <a (click)="closeMenu()" [routerLink]="'/pub/home/login'">
+              <span class="entry">Login</span>
+            </a>
+          </div>
+        </div>
+        <div id="menu-head-online" *ngIf="isLogged()" class="d-flex flex-fill flex-row ms-3 align-items-center">
+          <a (click)="closeMenu()" [routerLink]="'/pub/home/login'">
+            <img class="profile-pic" [ngSrc]="user().photoUrl">
+          </a>
+          <div class="d-flex flex-col ms-2">
+            <span>{{user().name}}</span>
+            <a (click)="signOut()">
+              <span class="entry">Sair</span>
+            </a>
+          </div>
+        </div>
+      </mat-list-item>
+
+      <mat-divider></mat-divider>
 
       <a mat-list-item (click)="closeMenu()" [routerLink]="'/pub/home/bar-manual'">
         <span class="entry">

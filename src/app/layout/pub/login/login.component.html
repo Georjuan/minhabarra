@@ -1,0 +1,34 @@
+<div id="login-container" class="d-flex justify-content-center">
+
+  <mat-card id="login-card" class="mt-2">
+
+    <mat-card-title class="d-flex justify-content-center">Login</mat-card-title>
+
+    <mat-card-subtitle class="d-flex center">
+      Para ter acesso a recursos exclusivos, acesse usando uma de suas redes sociais.
+    </mat-card-subtitle>
+
+    <mat-card-content>
+
+      <div class="d-flex flex-fill flex-column justify-content-center">
+
+        <asl-google-signin-button class="d-flex" type='icon' size='medium'></asl-google-signin-button>
+
+        <a id="facebook-login" class="d-flex mt-3" (click)="signInFacebook()">
+          <i id="facebook-login-button" class="bi-facebook"></i>
+          <span>Continuar com Facebook</span>
+        </a>
+
+      </div>
+
+    </mat-card-content>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-actions class="flex-column justify-content-center"></mat-card-actions>
+
+    <mat-card-footer></mat-card-footer>
+
+  </mat-card>
+
+</div>

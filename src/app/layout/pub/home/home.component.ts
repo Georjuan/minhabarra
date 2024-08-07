@@ -3,6 +3,8 @@ import {BreakpointObserver} from "@angular/cdk/layout";
 import {MatSidenav} from "@angular/material/sidenav";
 import {environment} from "../../../../environments/environment";
 import packageJson from "../../../../../package.json";
+import {SocialAuthService, SocialUser} from "@abacritt/angularx-social-login";
+import {UserAppService} from "../../../shared/services/user-app.service";
 
 @Component({
   selector: 'app-home',
@@ -22,7 +24,9 @@ export class HomeComponent implements OnInit {
   isMobile= true;
   isCollapsed = true;
 
-  constructor(private observer: BreakpointObserver) {}
+  constructor(private observer: BreakpointObserver,
+              private authService: SocialAuthService,
+              private userApp: UserAppService) {}
 
   ngOnInit() {
     this.observer.observe(['(max-width: 800px)']).subscribe((screenSize) => {
@@ -38,6 +42,22 @@ export class HomeComponent implements OnInit {
   toggleMenu(): void {
     this.sidenav.open();
     this.isCollapsed = !this.isCollapsed;
+  }
+
+  signOut(): void {
+    this.authService.signOut().then(
+      () => {
+        window.location.reload();
+      }
+    )
+  }
+
+  isLogged(): boolean {
+    return this.userApp.isLoggedIn();
+  }
+
+  user(): SocialUser{
+    return this.userApp.getUser();
   }
 
 }

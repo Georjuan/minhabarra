@@ -1,0 +1,31 @@
+@media (min-width: 601px) {
+  #login-card {
+    width: 450px;
+  }
+}
+
+#facebook-login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(26, 119, 242);
+  border-radius: 6px;
+  max-width: 250px;
+  padding: 5px;
+
+  #facebook-login-button {
+    display: flex;
+    margin-right: 5px;
+    background-color: rgb(26, 119, 242);
+    color: white;
+    font-size: 2rem;
+    border-radius: 100%;
+  }
+
+  span{
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+}

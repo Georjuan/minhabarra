@@ -11,6 +11,9 @@ import {MatOption, MatSelect} from "@angular/material/select";
 import { BarAutomaticComponent } from './bar-automatic/bar-automatic.component';
 import {MatSlideToggle} from "@angular/material/slide-toggle";
 import { InstallInstructionsComponent } from './install-instructions/install-instructions.component';
+import { LoginComponent } from './login/login.component';
+import {GoogleSigninButtonModule} from "@abacritt/angularx-social-login";
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -20,7 +23,8 @@ import { InstallInstructionsComponent } from './install-instructions/install-ins
     CalcPercentComponent,
     ContatoComponent,
     BarAutomaticComponent,
-    InstallInstructionsComponent
+    InstallInstructionsComponent,
+    LoginComponent
   ],
   imports: [
     PubRoutesModule,
@@ -28,7 +32,9 @@ import { InstallInstructionsComponent } from './install-instructions/install-ins
     MatTooltip,
     MatSelect,
     MatOption,
-    MatSlideToggle
+    MatSlideToggle,
+    GoogleSigninButtonModule,
+    NgOptimizedImage
   ],
   exports: [
     HomeComponent
