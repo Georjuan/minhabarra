@@ -17,7 +17,7 @@ export const environment = {
       appId: 'your-app-id'
     },
     google: {
-      clientId: 'your-client-id'
+      clientId: '425268171354-9h4sfnn4rq1ipgortie18c8h4tfcggpb.apps.googleusercontent.com'
     }
   }
 }

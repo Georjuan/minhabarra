@@ -14,4 +14,5 @@ export class LoginComponent {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
   }
 
+  protected readonly Number = Number;
 }

@@ -9,9 +9,11 @@
   justify-content: center;
   align-items: center;
   background-color: rgb(26, 119, 242);
-  border-radius: 6px;
+  border-radius: 5px;
   max-width: 250px;
-  padding: 5px;
+  padding: 4px;
+  cursor: pointer;
+  margin: auto;
 
   #facebook-login-button {
     display: flex;

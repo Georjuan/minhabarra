@@ -10,11 +10,15 @@
 
     <mat-card-content>
 
-      <div class="d-flex flex-fill flex-column justify-content-center">
+      <div class="d-flex flex-fill flex-column justify-content-center center">
 
-        <asl-google-signin-button class="d-flex" type='icon' size='medium'></asl-google-signin-button>
+        <asl-google-signin-button class="d-flex justify-content-center" type='standard' size='large'
+                                  text="signin_with" [locale]="'pt-BR'"
+                                  theme="filled_blue" shape="rectangular"
+                                  logo_alignment="left">
+        </asl-google-signin-button>
 
-        <a id="facebook-login" class="d-flex mt-3" (click)="signInFacebook()">
+        <a id="facebook-login" class="mt-3 mb-3 ps-2 pe-2" (click)="signInFacebook()">
           <i id="facebook-login-button" class="bi-facebook"></i>
           <span>Continuar com Facebook</span>
         </a>
