@@ -14,7 +14,7 @@ export const environment = {
 
   socialLogin: {
     facebook:{
-      appId: 'your-app-id'
+      appId: '1236712627327912'
     },
     google: {
       clientId: '425268171354-9h4sfnn4rq1ipgortie18c8h4tfcggpb.apps.googleusercontent.com'

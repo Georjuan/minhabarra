@@ -6,7 +6,7 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
-import {FontAwesomeModule, FaIconLibrary} from '@fortawesome/angular-fontawesome';
+import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {MatCardModule} from "@angular/material/card";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {FormsModule} from "@angular/forms";
@@ -15,7 +15,7 @@ import {Input2DigitsDecimalNumberDirective} from "./directive/input2-digits-deci
 
 @NgModule({
   declarations: [
-    Input2DigitsDecimalNumberDirective
+    Input2DigitsDecimalNumberDirective,
   ],
   imports: [
     CommonModule,
@@ -29,7 +29,7 @@ import {Input2DigitsDecimalNumberDirective} from "./directive/input2-digits-deci
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule,
+    FormsModule
 ],
   exports: [
     CommonModule,

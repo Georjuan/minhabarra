@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {HomeComponent} from "./home/home.component";
+import {HomeComponent} from "../../shared/components/home/home.component";
 import {KgToLbComponent} from "./kg-to-lb/kg-to-lb.component";
 import {BarManualComponent} from "./bar-manual/bar-manual.component";
 import {CalcPercentComponent} from "./calc-percent/calc-percent.component";
@@ -45,7 +45,7 @@ const routes: Routes = [
         component: InstallInstructionsComponent
       },
       {
-        path: 'login',
+        path: 'login/:redirect',
         component: LoginComponent
       }
     ]

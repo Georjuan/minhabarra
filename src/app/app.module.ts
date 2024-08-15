@@ -8,6 +8,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
 import {
   FacebookLoginProvider,
+  GoogleInitOptions,
   GoogleLoginProvider,
   SocialAuthServiceConfig,
   SocialLoginModule
@@ -15,6 +16,19 @@ import {
 import {environment} from "../environments/environment";
 import {AppHttpInterceptor} from "./shared/services/security/http.interceptor";
 import {UserAppService} from "./shared/services/user-app.service";
+
+// https://developers.facebook.com/docs/reference/javascript/FB.login/v2.11
+const fbLoginOptions = {
+  scope: 'email,public_profile',
+  return_scopes: true,
+  enable_profile_selector: true
+};
+
+// https://developers.google.com/identity/oauth2/web/guides/use-token-model#initialize_a_token_client
+const googleLoginOptions: GoogleInitOptions = {
+  oneTapEnabled: false,
+  scopes: ''
+};
 
 @NgModule({
   declarations: [
@@ -37,16 +51,16 @@ import {UserAppService} from "./shared/services/user-app.service";
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
-        autoLogin: false,
-        lang: 'pt',
+        autoLogin: true,
+        lang: 'pt-BR',
         providers: [
           {
             id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider(environment.socialLogin.google.clientId)
+            provider: new GoogleLoginProvider(environment.socialLogin.google.clientId, googleLoginOptions)
           },
           {
             id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider(environment.socialLogin.facebook.appId)
+            provider: new FacebookLoginProvider(environment.socialLogin.facebook.appId, fbLoginOptions)
           }
         ],
         onError: (err) => {console.error(err);}

@@ -1,17 +1,19 @@
 import {NgModule} from '@angular/core';
 
 import {PvtRoutingModule} from './pvt-routing.module';
-import {HomeComponent} from './home/home.component';
+import {HomeComponent as PubHomeComponent} from '../../shared/components/home/home.component';
 import {SharedModule} from "../../shared/shared.module";
-
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
-    HomeComponent
+  
+    ProfileComponent
   ],
   imports: [
     PvtRoutingModule,
-    SharedModule
+    SharedModule,
+    PubHomeComponent
   ]
 })
 export class PvtModule { }

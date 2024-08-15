@@ -3,13 +3,18 @@ import {BreakpointObserver} from "@angular/cdk/layout";
 import {MatSidenav} from "@angular/material/sidenav";
 import {environment} from "../../../../environments/environment";
 import packageJson from "../../../../../package.json";
-import {SocialAuthService, SocialUser} from "@abacritt/angularx-social-login";
-import {UserAppService} from "../../../shared/services/user-app.service";
+import {SocialUser} from "@abacritt/angularx-social-login";
+import {UserAppService} from "../../services/user-app.service";
+import {SharedModule} from "../../shared.module";
+import {RouterLink} from "@angular/router";
+import {NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
+  standalone: true,
+  imports: [SharedModule, RouterLink, NgOptimizedImage],
 })
 export class HomeComponent implements OnInit {
   version: string = packageJson.version;
@@ -25,8 +30,7 @@ export class HomeComponent implements OnInit {
   isCollapsed = true;
 
   constructor(private observer: BreakpointObserver,
-              private authService: SocialAuthService,
-              private userApp: UserAppService) {}
+              private userAppService: UserAppService) {}
 
   ngOnInit() {
     this.observer.observe(['(max-width: 800px)']).subscribe((screenSize) => {
@@ -45,19 +49,16 @@ export class HomeComponent implements OnInit {
   }
 
   signOut(): void {
-    this.authService.signOut().then(
-      () => {
-        window.location.reload();
-      }
-    )
+    this.closeMenu();
+    this.userAppService.logout();
   }
 
   isLogged(): boolean {
-    return this.userApp.isLoggedIn();
+    return this.userAppService.isLoggedIn();
   }
 
   user(): SocialUser{
-    return this.userApp.getUser();
+    return this.userAppService.getUser();
   }
 
 }
